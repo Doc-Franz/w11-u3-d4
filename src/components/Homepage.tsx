@@ -1,25 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleArticle from "./SingleArticle";
-
-interface MyArticle {
-  id: number;
-  title: string;
-  url: string;
-  image_url: string;
-  news_site: string;
-  summary: string;
-  published_at: Date;
-  updated_at: Date;
-  featured: boolean;
-  launches: Launch[];
-  events: unknown[];
-}
-
-interface Launch {
-  launch_id: string;
-  provider: string;
-}
+import { MyArticle } from "../interfaces/Article";
 
 const Homepage = () => {
   const [articles, setArticles] = useState<MyArticle[]>([]);

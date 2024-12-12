@@ -2,20 +2,7 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-
-interface ArticleDetails {
-  id: number;
-  title: string;
-  url: string;
-  image_url: string;
-  news_site: string;
-  summary: string;
-  published_at: Date;
-  updated_at: Date;
-  featured: boolean;
-  launches: unknown[];
-  events: unknown[];
-}
+import { ArticleDetails } from "../interfaces/Article";
 
 const ArticleDetail = () => {
   const { articleId } = useParams();
@@ -46,7 +33,7 @@ const ArticleDetail = () => {
         {articleDetails && (
           <Col>
             <h1 className="mt-3">{articleDetails.title}</h1>
-            <img src={articleDetails.image_url} className="mb-3" />
+            <img src={articleDetails.image_url} className="mb-3" style={{ width: "100%" }} />
             <p>{articleDetails.summary}</p>
             <p>Published at {new Date(articleDetails.published_at).toLocaleString("it-IT")}</p>
           </Col>

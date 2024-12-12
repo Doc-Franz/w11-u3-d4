@@ -1,30 +1,12 @@
 import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { MyArticle } from "../interfaces/Article";
 
-interface MyArticle {
-  id: number;
-  title: string;
-  url: string;
-  image_url: string;
-  news_site: string;
-  summary: string;
-  published_at: Date;
-  updated_at: Date;
-  featured: boolean;
-  launches: Launch[];
-  events: unknown[];
-}
-
-interface Launch {
-  launch_id: string;
-  provider: string;
-}
-
-interface SingleArticle {
+interface SingleArticleProps {
   article: MyArticle;
 }
 
-const SingleArticle = ({ article }: SingleArticle) => {
+const SingleArticle = ({ article }: SingleArticleProps) => {
   return (
     <Col xs={12} md={6} key={article.id} className="mb-3">
       <Card>
@@ -32,7 +14,7 @@ const SingleArticle = ({ article }: SingleArticle) => {
         <Card.Body>
           <Card.Title>{article.title}</Card.Title>
           <Card.Text>{article.summary}</Card.Text>
-          <Link to={`/${article.id}`}>
+          <Link to={`/article/${article.id}`}>
             <Button variant="primary">Details</Button>
           </Link>
         </Card.Body>
